@@ -1,0 +1,606 @@
+// Подключаем шрифты **********************************************
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+//  Шрифт по умолчанию ***********************************************
+@fontFamily: "Roboto";
+//  Дополнительные шрифты ***********************************************
+.ff {
+  font-family: "PT+Serif";
+}
+//  Переменные *********************************************************
+@color-link: grey;
+@color-link-hover: darkgrey;
+@color-active: black;
+@color-a: black;
+@brand: rgb(101, 177, 239);
+
+// Навигация *************************************************************
+body {
+  font-family: @fontFamily;
+  @media screen and (max-width: 991px) {
+    font-size: 15px;
+    & h2 {
+      font-size: 20px;
+    }
+    & h5 {
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    font-size: 14px;
+    & h2 {
+      font-size: 18px;
+    }
+    & h5 {
+      font-size: 16px;
+    }
+  }
+}
+.wrapperBig {
+  width: 80%;
+  margin: 0 auto;
+}
+.container-navbar {
+  width: 80%;
+  margin: 0 auto;
+  & .navbar-toggler-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 991px) {
+    & .brand-logo {
+      width: 30px;
+      height: 30px;
+    }
+    & a {
+      font-size: 15px;
+      font-weight: initial;
+    }
+  }
+}
+.brand-logo {
+  width: 40px;
+  height: 40px;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: @color-a;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    color: @brand;
+  }
+}
+.navbar-nav {
+  margin: 0 auto;
+}
+.nav-item {
+  position: relative;
+  & span {
+    @media screen and (max-width: 1199px) {
+      font-size: 15px;
+    }
+  }
+
+  & span {
+    position: relative;
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+    color: @color-a;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 0%;
+      height: 1px;
+      background-color: @brand;
+      bottom: 0;
+      transition: 0.3s ease-in-out;
+      @media screen and (max-width: 991px) {
+        & {
+          left: 0%;
+        }
+      }
+    }
+  }
+  &:hover {
+    color: @color-link;
+    span:after {
+      left: 0;
+      width: 100%;
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    & a {
+      font-size: 15px;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0px 20px;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  background-color: @color-link;
+  color: white;
+  // font-size: 16px;
+  // font-weight: 700;
+  // letter-spacing: 1px;
+  transition: 0.3s ease-in-out;
+  text-transform: uppercase;
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    transition: 0.3s ease-in-out;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background-color: @color-link-hover;
+  }
+  & span {
+    position: relative;
+    z-index: 2;
+  }
+  &:hover {
+    &::after {
+      left: 0;
+      width: 100%;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}
+
+.active-item {
+  position: relative;
+  & span {
+    position: relative;
+    display: inline-block;
+    transition: 0.3s ease-in-out;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: @brand;
+      bottom: 0;
+      transition: 0.3s ease-in-out;
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
+    }
+  }
+  &:hover {
+    color: @color-active;
+    span:after {
+      left: 50%;
+      width: 0%;
+      @media screen and (max-width: 991px) {
+        left: 0;
+      }
+    }
+  }
+}
+//  wrapper-top ****************************************************************
+.img-box {
+  position: relative;
+  // width: 90%;
+  height: 40vw;
+  // margin: 0 5%;
+  overflow: hidden;
+  @media screen and (max-width: 991px) {
+    height: 50vw;
+  }
+  @media screen and (max-width: 575px) {
+    height: 60vw;
+  }
+  & .img-blue img {
+    @media screen and (max-width: 991px) {
+      height: 50vw;
+    }
+    @media screen and (max-width: 575px) {
+      height: 60vw;
+    }
+  }
+  & .img-blue:after,
+  .img-blue:before {
+    content: "";
+    transform: rotate(20deg);
+    position: absolute;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#65b1ef+2,65b1ef+100&1+0,0+100 */
+    background-image: -moz-linear-gradient(
+      top,
+      rgba(101, 177, 239, 1) 0%,
+      rgba(101, 177, 239, 0.98) 2%,
+      rgba(101, 177, 239, 0) 100%
+    ); /* FF3.6-15 */
+    background-image: -webkit-linear-gradient(
+      top,
+      rgba(101, 177, 239, 1) 0%,
+      rgba(101, 177, 239, 0.98) 2%,
+      rgba(101, 177, 239, 0) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background-image: linear-gradient(
+      to bottom,
+      rgba(101, 177, 239, 1) 0%,
+      rgba(101, 177, 239, 0.98) 2%,
+      rgba(101, 177, 239, 0) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65b1ef', endColorstr='#0065b1ef',GradientType=0 ); /* IE6-9 */
+  }
+  & .img-blue:after {
+    width: 40%;
+    height: 140%;
+    left: -10%;
+    top: -30%;
+    transition: 0.3s ease-in-out;
+  }
+  & .img-blue:before {
+    width: 30%;
+    height: 120%;
+    left: -15%;
+    top: -20%;
+  }
+  &:hover {
+    .img-blue:after {
+      left: -40%;
+    }
+  }
+  & .img-title {
+    position: absolute;
+    right: 50px;
+    bottom: 100px;
+    @media screen and (max-width: 991px) {
+      bottom: 50px;
+      & h1 {
+        font-size: 20px;
+      }
+    }
+    @media screen and (max-width: 575px) {
+      right: 10px;
+      bottom: 50px;
+      & h1 {
+        font-size: 15px;
+      }
+    }
+    @media screen and (max-width: 400px) {
+      display: none;
+    }
+  }
+}
+.top-text {
+  width: 80%;
+  margin: 0 10%;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+.btn {
+  font-size: 20px;
+}
+@media screen and (max-width: 991px) {
+  .btn {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .btn {
+    font-size: 10px;
+  }
+}
+
+// wrapper-investor  **************************************************************
+.investor-text {
+  width: 50%;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  }
+}
+.relation-number {
+  font-size: 50px;
+  color: @brand;
+  @media screen and (max-width: 991px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
+}
+// wrapper-news  **************************************************************
+.wrapper-news {
+  & .news-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // & .news-title {
+    // }
+    & .news-link {
+      display: flex;
+      position: relative;
+      & .naws-title-item {
+        margin-left: 100px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        text-transform: uppercase;
+
+        @media screen and (max-width: 850px) {
+          margin: 0 50px 0 0;
+        }
+        &.active {
+          color: @brand;
+        }
+      }
+      & .naws-title-item {
+        position: relative;
+        margin-right: 20px;
+        & span {
+          position: relative;
+          display: block;
+          transition: 0.3s ease-in-out;
+          color: @color-a;
+          &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 0%;
+            height: 1px;
+            background-color: @brand;
+            bottom: 0;
+            transition: 0.3s ease-in-out;
+            @media screen and (max-width: 991px) {
+              & {
+                left: 0%;
+              }
+            }
+          }
+        }
+        &:hover {
+          color: @color-link;
+          span:after {
+            left: 0;
+            width: 100%;
+            @media screen and (max-width: 991px) {
+              width: 50%;
+            }
+          }
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        @media screen and (max-width: 1023px) {
+          & a {
+            font-size: 15px;
+          }
+        }
+      }
+      & .active {
+        position: relative;
+        & span {
+          position: relative;
+          display: block;
+          transition: 0.3s ease-in-out;
+          &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: @brand;
+            bottom: 0;
+            transition: 0.3s ease-in-out;
+            @media screen and (max-width: 991px) {
+              width: 50%;
+            }
+          }
+        }
+        &:hover {
+          color: @color-active;
+          span:after {
+            left: 50%;
+            width: 0%;
+            @media screen and (max-width: 991px) {
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  & .news-box {
+    width: 100%;
+    margin: 0;
+    & .radio-select {
+      position: absolute;
+      width: 0%;
+      height: 0%;
+      opacity: 0;
+      visibility: hidden;
+      top: 0;
+      left: 0;
+    }
+    & .radio-select:checked + .card {
+      box-shadow: 1px 1px 10px 3px rgba(101, 177, 239, 0.2) inset;
+    }
+    & .news-column {
+      position: relative;
+      width: 33.333%;
+      cursor: pointer;
+      & .card-img-top {
+        position: relative;
+        overflow: hidden;
+        & .card-img:after,
+        .card-img:before {
+          content: "";
+          transform: rotate(20deg);
+          position: absolute;
+          /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#65b1ef+2,65b1ef+100&1+0,0+100 */
+          background-image: -moz-linear-gradient(
+            top,
+            rgba(101, 177, 239, 1) 0%,
+            rgba(101, 177, 239, 0.98) 2%,
+            rgba(101, 177, 239, 0) 100%
+          ); /* FF3.6-15 */
+          background-image: -webkit-linear-gradient(
+            top,
+            rgba(101, 177, 239, 1) 0%,
+            rgba(101, 177, 239, 0.98) 2%,
+            rgba(101, 177, 239, 0) 100%
+          ); /* Chrome10-25,Safari5.1-6 */
+          background-image: linear-gradient(
+            to bottom,
+            rgba(101, 177, 239, 1) 0%,
+            rgba(101, 177, 239, 0.98) 2%,
+            rgba(101, 177, 239, 0) 100%
+          ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65b1ef', endColorstr='#0065b1ef',GradientType=0 ); /* IE6-9 */
+        }
+        & .card-img:after {
+          width: 40%;
+          height: 140%;
+          left: -10%;
+          top: -30%;
+          transition: 0.3s ease-in-out;
+        }
+        & .card-img:before {
+          width: 30%;
+          height: 120%;
+          left: -15%;
+          top: -20%;
+          z-index: 1;
+        }
+        &:hover {
+          .card-img:after {
+            left: -40%;
+          }
+          .card-title p {
+            text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.1);
+          }
+        }
+        & .card-title {
+          // position: relative;
+          & h5 {
+            position: absolute;
+            width: 60%;
+            right: 5px;
+            bottom: 20px;
+            text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.1);
+          }
+          & p {
+            position: absolute;
+            font-size: 15px;
+            left: 10px;
+            top: 10px;
+            transition: 0.3s ease-in-out;
+            z-index: 1;
+          }
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        width: 49%;
+      }
+      @media screen and (max-width: 767px) {
+        width: 99%;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    & .card {
+      border: 0;
+    }
+  }
+  // & .radio-select:checked .card {
+  //   border: 2px solid black;
+  // }
+}
+// & .radio-select:checked .card {
+//   border: 2px solid black;
+// }
+.country {
+  & .country-maps {
+    height: 40vw;
+  }
+}
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & .footer-col {
+    display: flex;
+    & .footer-link {
+      position: relative;
+      margin-right: 20px;
+      & span {
+        position: relative;
+        display: block;
+        transition: 0.3s ease-in-out;
+        color: @color-a;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          width: 0%;
+          height: 1px;
+          background-color: @brand;
+          bottom: 0;
+          transition: 0.3s ease-in-out;
+          @media screen and (max-width: 991px) {
+            & {
+              left: 0%;
+            }
+          }
+        }
+      }
+      &:hover {
+        color: @color-link;
+        span:after {
+          left: 0;
+          width: 100%;
+          @media screen and (max-width: 991px) {
+            width: 50%;
+          }
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      @media screen and (max-width: 1023px) {
+        & a {
+          font-size: 15px;
+        }
+      }
+    }
+    & .footer-link a {
+      text-decoration: none;
+      color: @color-link;
+      @media screen and (max-width: 991px) {
+        font-size: 14px;
+      }
+      @media screen and (max-width: 575px) {
+        font-size: 12px;
+      }
+    }
+    @media screen and (max-width: 575px) {
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
